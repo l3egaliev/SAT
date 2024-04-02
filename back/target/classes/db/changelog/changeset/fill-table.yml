@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/changelog-master.yml
+    changeSet:
+      id: insert-to-users
+      author: Rakhim
+      changes:
+        - insert:
+            tableName: users
+            schemaName: kamalov
+            columns:
+              - column:
+                  name: firstname
+                  value: Rakhim
+              - column:
+                  name: lastname
+                  value: Nuraliev
+              - column:
+                  name: email
+                  value: rahimbekbegaliev@gmail.com
+              - column:
+                  name: password
+                  value: test
+              - column:
+                  name: role
+                  value: ADMIN

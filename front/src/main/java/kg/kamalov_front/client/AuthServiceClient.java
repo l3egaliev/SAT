@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(value = "authClient", url = "http://localhost:8080")
+@FeignClient(value = "authClient", url = "http://localhost:8081")
 public interface AuthServiceClient{
 
     @GetMapping("/hello")

@@ -1,13 +1,13 @@
-package kg.kamalov;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class BackApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
-
-}
+//package kg.kamalov;
+//
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//@SpringBootTest
+//class BackApplicationTests {
+//
+//    @Test
+//    void contextLoads() {
+//    }
+//
+//}

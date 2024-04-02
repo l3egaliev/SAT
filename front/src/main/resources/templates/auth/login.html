@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container-sm mt-3">
-        <form th:action="@{/login}" th:method="post" th:object="${login_user}">
+        <form th:action="@{/}" th:method="post" th:object="${login_user}">
             <label for="email-reg">Email</label>
             <input type="text"  id="email-reg" class="form-control email mb-1" th:field="*{email}">
             <div  style="color:red" class="email-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
@@ -19,9 +19,9 @@
             <br>
             <a th:href="@{/registration}" class="mb-2">Нет аккаунта?</a>
             <br>
-<!--            <div style="color:red" th:if="${param.error}" >-->
-<!--                Неправильный email или пароль-->
-<!--            </div>-->
+            <div style="color:red" th:if="${error}" >
+                Неправильный email или пароль
+            </div>
 
             <input type="submit" value="Войти" class="btn btn-primary ">
         </form>

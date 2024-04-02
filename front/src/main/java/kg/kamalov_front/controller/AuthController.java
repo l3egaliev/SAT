@@ -29,19 +29,21 @@ public class AuthController {
         return "auth/login";
     }
 
-    @PostMapping("/login")
+    @PostMapping()
     public String login(@ModelAttribute("login_user") @Valid SignInRequest request,
-                        BindingResult br){
+                        BindingResult br, Model model){
         try {
             ResponseEntity<String> response = authServiceClient.login(request);
             String message = response.getBody();
             log.info("Message {}", message);
+            if (response.getStatusCode().is4xxClientError()){
+                model.addAttribute("error", "Incorrect email or password");
+                return "auth/login";
+            }
             if (br.hasErrors())
                 return "auth/login";
-        } catch (FeignException.FeignClientException ex) {
-            String errorMessage = ex.contentUTF8();
-            log.info("Message {}", errorMessage);
-            br.rejectValue("", null, errorMessage);
+        } catch (FeignException.BadRequest ex) {
+            model.addAttribute("error", "Incorrect email or password");
             return "auth/login";
         }
         return "public/index";
@@ -64,7 +66,7 @@ public class AuthController {
         } catch (FeignException.BadRequest ex) {
             String errorMessage = ex.contentUTF8();
             log.info("Message {}", errorMessage);
-            bd.rejectValue("email", null, errorMessage); // Добавляем сообщение об ошибке к полю "email"
+            bd.rejectValue("email", null, errorMessage);
             return "auth/registration";
         }
         return "redirect:/auth/login";

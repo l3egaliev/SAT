@@ -1,0 +1,23 @@
+.forget{
+    position: absolute;
+    right: 50px;
+    font-size: 12px;
+}
+
+.btn-submit{
+    display: block;
+    padding: 10px 30px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/*.tab-link {*/
+/*    float: left;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.active-tab{*/
+/*    background-color: #f2f2f2;*/
+/*}*/
+

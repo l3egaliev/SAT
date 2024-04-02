@@ -1,0 +1,8 @@
+kg\kamalov_front\handler\GlobalExceptionHandler.class
+kg\kamalov_front\FrontApplication$FrontConfig.class
+kg\kamalov_front\entity\SignUpRequest.class
+kg\kamalov_front\controller\AuthController.class
+kg\kamalov_front\entity\SignInRequest.class
+kg\kamalov_front\client\AuthServiceClient.class
+kg\kamalov_front\service\AuthService.class
+kg\kamalov_front\FrontApplication.class

@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: back
+          uri: back:8081
+          predicates:
+            - Path=/back/**
+        - id: front
+          uri: front:8082
+          predicates:
+            - Path=/front/**
+      enabled: true
+server:
+  port: 8080

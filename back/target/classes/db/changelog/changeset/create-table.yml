@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/changelog-master.yml
+  - changeSet:
+      author: Rakhim
+      id: table-users
+      changes:
+        - createSequence:
+            schemaName: kamalov
+            sequenceName: user_id_seq
+            startValue: 1
+            incrementBy: 1
+            minValue: 1
+        - createTable:
+            tableName: users
+            schemaName: kamalov
+            columns:
+              - column:
+                  name: user_id
+                  type: int
+                  defaultValueComputed: nextval('kamalov.user_id_seq')
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: firstname
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lastname
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar
