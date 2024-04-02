@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration page</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/authentication.css}">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+
+</head>
+<body>
+<!--        <nav class="container-lg">-->
+<!--            <div th:replace="~{fragments/navbar::navbar}"></div>-->
+<!--            <div th:replace="~{fragments/modal-login::modal_login}"></div>-->
+<!--        </nav>-->
+      <div class="container">
+          <h1 class="modal-title fs-2 mb-5 text-center">Create your Account</h1>
+          <form th:action="@{/register}" th:method="post" th:object="${register_user}">
+              <input type="text" id="firstname-reg" required class="form-control firstname mb-1" th:field="*{firstname}" placeholder="firstname">
+              <div  style="color:red" class="firstname-error" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+              <br>
+
+              <input type="text"  id="lastname-reg" required class="form-control lastname mb-1" th:field="*{lastname}" placeholder="lastname">
+              <div  style="color:red" class="lastname-error" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+              <br>
+
+              <input type="email"  id="email-reg" required class="form-control email mb-1" th:field="*{email}" placeholder="email">
+              <div  style="color:red" class="email-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+              <br>
+
+              <input type="password" class="form-control password" required th:field="*{password}" id="password-reg" placeholder="password">
+              <div  style="color:red" class="password-error" th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
+              <br>
+
+              <input type="submit" class="btn btn-primary btn-submit text-center"  id="" value="Регистрироваться">
+          </form>
+      </div>
+
+        <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.min.js}"></script>
+</body>
+</html>
